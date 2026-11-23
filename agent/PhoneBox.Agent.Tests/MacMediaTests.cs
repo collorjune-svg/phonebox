@@ -173,6 +173,8 @@ public sealed class MacMediaTests
     [Theory]
     [InlineData("com.spotify.client", "Spotify")]
     [InlineData("com.github.th-ch.youtube-music", "YouTube Music")]
+    [InlineData("com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod", "YouTube Music")]
+    [InlineData("com.google.Chrome.app.agimnkijcaahngcdmfeangaknmldooml", "Chrome")]
     [InlineData("org.example.player", "player")]
     public void KnownPlayersAreNamedAfterTheirBundle(string bundle, string expected)
     {

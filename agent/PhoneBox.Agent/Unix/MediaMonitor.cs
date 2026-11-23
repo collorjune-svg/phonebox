@@ -182,6 +182,10 @@ public sealed class MediaMonitor(ILogger<MediaMonitor> log) : BackgroundService
                 "com.apple.Music" => "Music",
                 "com.spotify.client" => "Spotify",
                 "com.github.th-ch.youtube-music" => "YouTube Music",
+                // YouTube Music installed as a Chrome app (PWA): the ID is the same on every Mac
+                "com.google.Chrome.app.cinhimbnkkaeohfgghhklpknlkffjgod" => "YouTube Music",
+                // any other Chrome app would otherwise show its 32-letter ID
+                _ when bundle.StartsWith("com.google.Chrome.app.", StringComparison.Ordinal) => "Chrome",
                 _ => string.IsNullOrEmpty(bundle) ? "Mac" : bundle.Split('.').Last(),
             };
             var sourceKey = bundle + "\n" + title;
